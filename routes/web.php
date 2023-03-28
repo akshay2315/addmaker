@@ -7,6 +7,8 @@ use App\Http\Controllers\Auth\GalleryController;
 use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\Auth\AdminController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\IpostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,3 +72,5 @@ Route::group(['middleware' => ['auth']], function() {
     */
     Route::get('/logout', [LogoutController::class, 'perform'])->name('logout.perform');
  });
+Route::resource('posts', PostController::class);
+Route::resource('/iposts', IpostsController::class);
