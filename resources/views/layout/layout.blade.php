@@ -84,6 +84,18 @@
                   <i class="menu-icon mdi mdi-file-document"></i>
                     <span class="menu-title">Facebook</span>
                 </a>
+
+                <a class="nav-link" href="{{ url('posts') }}">
+                  <i class="menu-icon mdi mdi-file-document"></i>
+                    <span class="menu-title">Facebook Posts</span>
+                </a>
+
+                <a class="nav-link" href="{{ url('iposts') }}">
+                  <i class="menu-icon mdi mdi-file-document"></i>
+                    <span class="menu-title">Instagram Posts</span>
+                </a>
+                  
+
                   
 
             <a class="nav-link" href="{{ url('event') }}">

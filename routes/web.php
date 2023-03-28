@@ -7,10 +7,14 @@ use App\Http\Controllers\Auth\GalleryController;
 use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\Auth\AdminController;
 use App\Http\Controllers\LogoutController;
+
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\IpostsController;
 use App\Http\Controllers\IndustryController;
 use App\Http\Controllers\FbookController;
 use App\Http\Controllers\eventController;
 use App\Http\Controllers\twitterController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -78,8 +82,11 @@ Route::group(['middleware' => ['auth']], function() {
     */
     Route::get('/logout', [LogoutController::class, 'perform'])->name('logout.perform');
  });
- Route::resource('event', eventController::class);
+
+Route::resource('posts', PostController::class);
+Route::resource('/iposts', IpostsController::class);
+Route::resource('event', eventController::class);
 Route::post('update/event/{id}',[eventController::class, 'update'])->name('event.update');
- 
 Route::resource('twitter', twitterController::class);
 Route::post('update/twitter/{id}',[twitterController::class, 'update'])->name('twitter.update');
+
