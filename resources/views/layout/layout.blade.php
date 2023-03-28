@@ -95,7 +95,19 @@
                     <span class="menu-title">Instagram Posts</span>
                 </a>
                   
-            
+
+                  
+
+            <a class="nav-link" href="{{ url('event') }}">
+                  <i class="menu-icon mdi mdi-file-document"></i>
+                    <span class="menu-title">Upcoming Events</span>
+                </a>
+
+            <a class="nav-link" href="{{ url('twitter') }}">
+                  <i class="menu-icon mdi mdi-file-document"></i>
+                    <span class="menu-title">Twitter</span>
+                </a>
+
                 </a>
             </li>
 
