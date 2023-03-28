@@ -7,6 +7,8 @@ use App\Http\Controllers\Auth\GalleryController;
 use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\Auth\AdminController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\IndustryController;
+use App\Http\Controllers\FbookController;
 use App\Http\Controllers\eventController;
 use App\Http\Controllers\twitterController;
 
@@ -47,7 +49,11 @@ Route::get('page',function(){
 });
 
 Route::get('dash',function(){
-    return view('admin1.dashboard');
+    return view('dashboard');
+});
+
+Route::get('ind',function(){
+    return view('industry.index');
 });
 
        

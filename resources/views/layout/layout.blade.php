@@ -85,6 +85,7 @@
                     <span class="menu-title">Facebook</span>
                 </a>
                   
+
             <a class="nav-link" href="{{ url('event') }}">
                   <i class="menu-icon mdi mdi-file-document"></i>
                     <span class="menu-title">Upcoming Events</span>
