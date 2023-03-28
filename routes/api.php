@@ -7,7 +7,12 @@ use App\Http\Controllers\API\RegisterController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\AuthOtpController;
 use App\Http\Controllers\IndustrytypeController;
+
 use App\Http\Controllers\BcardController;
+
+use App\Http\Controllers\API\fetchcontroller;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -33,6 +38,8 @@ Route::get('/card',[BcardController::class, 'bcard']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+ Route::get('/display',[fetchcontroller::class, 'fetch']);
 
 // Route::get('admin',function(){
 //     return view('adminpage');
