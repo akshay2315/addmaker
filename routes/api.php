@@ -11,6 +11,11 @@ use App\Http\Controllers\IndustrytypeController;
 use App\Http\Controllers\BcardController;
 
 use App\Http\Controllers\API\fetchcontroller;
+use App\Http\Controllers\API\TwitController;
+use App\Http\Controllers\API\poster_data_controller;
+
+
+
 
 
 /*
@@ -23,7 +28,7 @@ use App\Http\Controllers\API\fetchcontroller;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+// Route::get('/display',[eventfetchController::class, 'fetch']);
 Route::post('register', [RegisterController::class, 'register']);
 // Route::post('login', [RegisterController::class, 'login']);
 
@@ -40,6 +45,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
  Route::get('/display',[fetchcontroller::class, 'fetch']);
+ Route::get('/twitter',[TwitController::class, 'twitter']);
+ Route::get('/poster',[poster_data_controller::class, 'poster']);
 
 // Route::get('admin',function(){
 //     return view('adminpage');

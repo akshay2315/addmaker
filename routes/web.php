@@ -7,12 +7,18 @@ use App\Http\Controllers\Auth\GalleryController;
 use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\Auth\AdminController;
 use App\Http\Controllers\LogoutController;
+
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\IpostsController;
 use App\Http\Controllers\IndustryController;
 use App\Http\Controllers\FbookController;
 use App\Http\Controllers\BussinessCardController;
 
 use App\Http\Controllers\eventController;
 use App\Http\Controllers\twitterController;
+use App\Http\Controllers\PosterController;
+
+
 
 
 /*
@@ -83,6 +89,7 @@ Route::group(['middleware' => ['auth']], function() {
  });
 
 
+
  Route::resource('industry', IndustryController::class);
  Route::resource('fbook', FbookController::class);
  Route::resource('bcard', BussinessCardController::class);
@@ -95,8 +102,19 @@ Route::group(['middleware' => ['auth']], function() {
 //  Route::get('admins', [IndustryController::class, 'indexs'])->name('admins.index');
 
  Route::resource('event', eventController::class);
+Route::resource('posts', PostController::class);
+Route::resource('/iposts', IpostsController::class);
+Route::resource('event', eventController::class);
+
 Route::post('update/event/{id}',[eventController::class, 'update'])->name('event.update');
- 
 Route::resource('twitter', twitterController::class);
 Route::post('update/twitter/{id}',[twitterController::class, 'update'])->name('twitter.update');
+
+
+Route::resource('poster', PosterController::class);
+Route::post('update/poster/{id}',[PosterController::class, 'update'])->name('poster.update');
+
+Route::resource('fbook', FbookController::class);
+Route::post('/fbook_update/{id}', [FbookController::class,'update'])->name('fbook.update');
+
 
