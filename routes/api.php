@@ -7,7 +7,7 @@ use App\Http\Controllers\API\RegisterController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\AuthOtpController;
 use App\Http\Controllers\IndustrytypeController;
-
+use App\Http\Controllers\BcardController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,7 +28,7 @@ Route::get('/display',[IndustrytypeController::class, 'index']);
 
 Route::get('/select/{id}',[IndustrytypeController::class, 'select']);
 
-//Route::post('/login',[AuthOtpController::class, 'login']);
+Route::get('/card',[BcardController::class, 'bcard']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

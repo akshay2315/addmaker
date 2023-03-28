@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\AdminController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\IndustryController;
 use App\Http\Controllers\FbookController;
+use App\Http\Controllers\BussinessCardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,3 +77,14 @@ Route::group(['middleware' => ['auth']], function() {
     */
     Route::get('/logout', [LogoutController::class, 'perform'])->name('logout.perform');
  });
+
+ Route::resource('industry', IndustryController::class);
+ Route::resource('fbook', FbookController::class);
+ Route::resource('bcard', BussinessCardController::class);
+  Route::post('/update/bcard/{id}', [BussinessCardController::class,'update'])->name('bcard.update');
+
+
+
+
+//  Route::post('delete-industry', [IndustryController::class,'destroy']);
+//  Route::get('admins', [IndustryController::class, 'indexs'])->name('admins.index');
