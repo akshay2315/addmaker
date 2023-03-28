@@ -4,6 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\RegisterController;
 use App\Http\Controllers\API\ProductController;
+use App\Http\Controllers\API\FetchpostController;
+use App\Http\Controllers\API\FetchipostController;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,10 +21,15 @@ use App\Http\Controllers\API\ProductController;
 
 Route::post('register', [RegisterController::class, 'register']);
 Route::post('login', [RegisterController::class, 'login']);
+Route::get('/display',[FetchpostController::class, 'index']);
+Route::get('/show',[FetchipostController::class, 'ipost']);
+
+
      
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 
 // Route::get('admin',function(){
 //     return view('adminpage');
