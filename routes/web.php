@@ -90,3 +90,9 @@ Route::post('update/event/{id}',[eventController::class, 'update'])->name('event
 Route::resource('twitter', twitterController::class);
 Route::post('update/twitter/{id}',[twitterController::class, 'update'])->name('twitter.update');
 
+Route::resource('industry', IndustryController::class);
+Route::post('/industry_update/{id}', [IndustryController::class,'update'])->name('industry.update');
+
+Route::resource('fbook', FbookController::class);
+Route::post('/fbook_update/{id}', [FbookController::class,'update'])->name('fbook.update');
+
