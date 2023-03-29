@@ -59,3 +59,5 @@ Route::get('/displaypost',[FetchpostController::class, 'index']);
 
 // fetching for insta post
 Route::get('/showpost',[FetchipostController::class, 'ipost']);
+//fetching for menu
+Route::get('/menu',[FetchmenuController::class, 'menu']);
