@@ -53,12 +53,12 @@ class PosterController extends Controller
             File::makeDirectory($path, 0777, true, true);
              $imageName = time().'.'.$request->poster_img->extension();  
              $request->poster_img->move(public_path('image'), $imageName);
-             $imagewithfolder = 'public\image\\'.$imageName;
+             $imagewithfolder = $imageName;
 
             }else{
             $imageName = time().'.'.$request->poster_img->extension();
             $request->poster_img->move(public_path('image'), $imageName);
-            $imagewithfolder = 'public\image\\'.$imageName;
+            $imagewithfolder = $imageName;
             }
             $data = poster::create([
             'poster_name' => $request->poster_name,
