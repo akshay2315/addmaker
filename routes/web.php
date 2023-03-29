@@ -86,11 +86,12 @@ Route::group(['middleware' => ['auth']], function() {
     /**
     * Logout Route
     */
-    Route::get('/logout', [LogoutController::class, 'perform'])->name('logout.perform');
+Route::get('/logout', [LogoutController::class, 'perform'])->name('logout.perform');
  });
 
 Route::resource('posts', PostController::class);
 Route::resource('/iposts', IpostsController::class);
+
 
 
 
@@ -109,8 +110,10 @@ Route::resource('/iposts', IpostsController::class);
  Route::resource('event', eventController::class);
 Route::resource('posts', PostController::class);
 Route::resource('/iposts', IpostsController::class);
+
 Route::resource('event', eventController::class);
 Route::post('update/event/{id}',[eventController::class, 'update'])->name('event.update');
+
 Route::resource('twitter', twitterController::class);
 Route::post('update/twitter/{id}',[twitterController::class, 'update'])->name('twitter.update');
 
@@ -120,5 +123,13 @@ Route::post('update/poster/{id}',[PosterController::class, 'update'])->name('pos
 Route::resource('fbook', FbookController::class);
 Route::post('/fbook_update/{id}', [FbookController::class,'update'])->name('fbook.update');
 
+
+Route::resource('industry', IndustryController::class);
+Route::post('/industry_update/{id}', [IndustryController::class,'update'])->name('industry.update');
+
+Route::resource('brands', BrandController::class);  //api
+
+
 Route::resource('youtube', youtubeController::class);
 Route::post('update/youtube/{id}',[youtubeController::class, 'update'])->name('youtube.update');
+
