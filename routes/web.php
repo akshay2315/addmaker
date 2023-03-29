@@ -15,6 +15,7 @@ use App\Http\Controllers\FbookController;
 use App\Http\Controllers\eventController;
 use App\Http\Controllers\twitterController;
 use App\Http\Controllers\PosterController;
+use App\Http\Controllers\youtubeController;
 
 
 
@@ -98,3 +99,5 @@ Route::post('update/poster/{id}',[PosterController::class, 'update'])->name('pos
 Route::resource('fbook', FbookController::class);
 Route::post('/fbook_update/{id}', [FbookController::class,'update'])->name('fbook.update');
 
+Route::resource('youtube', youtubeController::class);
+Route::post('update/youtube/{id}',[youtubeController::class, 'update'])->name('youtube.update');
