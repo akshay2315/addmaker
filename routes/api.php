@@ -10,6 +10,10 @@ use App\Http\Controllers\IndustrytypeController;
 use App\Http\Controllers\API\fetchcontroller;
 use App\Http\Controllers\API\TwitController;
 use App\Http\Controllers\API\poster_data_controller;
+use App\Http\Controllers\API\BrandController;
+
+use App\Http\Controllers\API\FacebookApiController;
+use App\Http\Controllers\API\AdminApiController;
 
 
 
@@ -36,6 +40,11 @@ Route::get('/select/{id}',[IndustrytypeController::class, 'select']);
 
 //Route::post('/login',[AuthOtpController::class, 'login']);
 
+Route::get('fbook', [FacebookApiController::class, 'index']);
+
+Route::put('edit/{id}', [ AdminApiController::class, 'edit']);
+Route::delete('delete/{id}', [ AdminApiController::class, 'delete']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -44,6 +53,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
  Route::get('/twitter',[TwitController::class, 'twitter']);
  Route::get('/poster',[poster_data_controller::class, 'poster']);
 
-// Route::get('admin',function(){
-//     return view('adminpage');
-// });
+ Route::post('/add/brand',[BrandController::class, 'store']);
+ Route::post('/edit/brand/{id}',[BrandController::class, 'edit']);
+
