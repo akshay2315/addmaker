@@ -11,7 +11,6 @@ use App\Http\Controllers\API\fetchcontroller;
 use App\Http\Controllers\API\TwitController;
 use App\Http\Controllers\API\poster_data_controller;
 use App\Http\Controllers\API\BrandController;
-
 use App\Http\Controllers\API\FacebookApiController;
 use App\Http\Controllers\API\AdminApiController;
 
