@@ -20,6 +20,7 @@ use App\Http\Controllers\PosterController;
 
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -86,6 +87,10 @@ Route::group(['middleware' => ['auth']], function() {
     */
     Route::get('/logout', [LogoutController::class, 'perform'])->name('logout.perform');
  });
+
+Route::resource('posts', PostController::class);
+Route::resource('/iposts', IpostsController::class);
+
 
 
 
