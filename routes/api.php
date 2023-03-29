@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\RegisterController;
 use App\Http\Controllers\API\ProductController;
+use App\Http\Controllers\API\FetchpostController;
+use App\Http\Controllers\API\FetchipostController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,3 +27,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::get('admin',function(){
 //     return view('adminpage');
 // });
+//fetching for fb post
+Route::get('/displaypost',[FetchpostController::class, 'index']);
+
+// fetching for insta post
+Route::get('/showpost',[FetchipostController::class, 'ipost']);
