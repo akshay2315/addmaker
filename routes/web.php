@@ -17,6 +17,7 @@ use App\Http\Controllers\BussinessCardController;
 use App\Http\Controllers\eventController;
 use App\Http\Controllers\twitterController;
 use App\Http\Controllers\PosterController;
+use App\Http\Controllers\MenuController;
 
 
 
@@ -88,10 +89,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/logout', [LogoutController::class, 'perform'])->name('logout.perform');
  });
 
-Route::resource('posts', PostController::class);
-Route::resource('/iposts', IpostsController::class);
-
-
 
 
 
@@ -108,6 +105,7 @@ Route::resource('/iposts', IpostsController::class);
  Route::resource('event', eventController::class);
 Route::resource('posts', PostController::class);
 Route::resource('/iposts', IpostsController::class);
+Route::resource('/menu', MenuController::class);
 Route::resource('event', eventController::class);
 Route::post('update/event/{id}',[eventController::class, 'update'])->name('event.update');
 Route::resource('twitter', twitterController::class);
