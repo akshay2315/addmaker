@@ -2,7 +2,11 @@
 
 
 @section('content')
+
 <!-- <section>
+
+<section>
+
 <div class="container mt-2">
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -48,9 +52,8 @@
         </form>
     </div>
 </div>
+
 </section> -->
-
-
 
 <!-- // code  -->
 <section> 
@@ -91,9 +94,7 @@
                         Edit Post
                     </a>
         
-
     </div>
 </div>
-
 </section>
 @endsection

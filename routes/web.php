@@ -10,6 +10,17 @@ use App\Http\Controllers\LogoutController;
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\IpostsController;
+use App\Http\Controllers\IndustryController;
+use App\Http\Controllers\FbookController;
+use App\Http\Controllers\BussinessCardController;
+
+use App\Http\Controllers\eventController;
+use App\Http\Controllers\twitterController;
+use App\Http\Controllers\PosterController;
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,7 +58,11 @@ Route::get('page',function(){
 });
 
 Route::get('dash',function(){
-    return view('admin1.dashboard');
+    return view('dashboard');
+});
+
+Route::get('ind',function(){
+    return view('industry.index');
 });
 
        
@@ -72,5 +87,35 @@ Route::group(['middleware' => ['auth']], function() {
     */
     Route::get('/logout', [LogoutController::class, 'perform'])->name('logout.perform');
  });
+
 Route::resource('posts', PostController::class);
 Route::resource('/iposts', IpostsController::class);
+
+
+
+
+
+ Route::resource('fbook', FbookController::class);
+ Route::resource('bcard', BussinessCardController::class);
+  Route::post('/update/bcard/{id}', [BussinessCardController::class,'update'])->name('bcard.update');
+
+
+
+
+//  Route::post('delete-industry', [IndustryController::class,'destroy']);
+//  Route::get('admins', [IndustryController::class, 'indexs'])->name('admins.index');
+
+ Route::resource('event', eventController::class);
+Route::resource('posts', PostController::class);
+Route::resource('/iposts', IpostsController::class);
+Route::resource('event', eventController::class);
+Route::post('update/event/{id}',[eventController::class, 'update'])->name('event.update');
+Route::resource('twitter', twitterController::class);
+Route::post('update/twitter/{id}',[twitterController::class, 'update'])->name('twitter.update');
+
+Route::resource('poster', PosterController::class);
+Route::post('update/poster/{id}',[PosterController::class, 'update'])->name('poster.update');
+
+Route::resource('fbook', FbookController::class);
+Route::post('/fbook_update/{id}', [FbookController::class,'update'])->name('fbook.update');
+
