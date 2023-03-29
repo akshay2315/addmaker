@@ -14,6 +14,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\API\fetchcontroller;
 use App\Http\Controllers\API\TwitController;
 use App\Http\Controllers\API\poster_data_controller;
+use App\Http\Controllers\API\youtube_data_controller;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +49,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
  Route::get('/display',[fetchcontroller::class, 'fetch']);
  Route::get('/twitter',[TwitController::class, 'twitter']);
  Route::get('/poster',[poster_data_controller::class, 'poster']);
+ Route::get('/youtube',[youtube_data_controller::class, 'youtube']);
 
 // Route::get('admin',function(){
 //     return view('adminpage');
