@@ -6,9 +6,12 @@
 <section>
     <div class="container-fluid">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Poster</h1>
+            <h1 class="h3 mb-0 text-gray-800">Bussiness_card</h1>
 
-            <a href="{{route('poster.create')}}" class="btn btn-primary btn-icon-split">
+            <div class="pull-right">
+              <a class="btn btn-success" href="{{ route('bcard.create') }}"> Create New Product</a>
+            </div>
+
                 <span class="icon text-white-50">
                     <i class="fa fa-plus" style="font-size:24px"></i>
                 </span>
@@ -26,10 +29,9 @@
                                 <thead>
                                     <tr>
                                     <th>Id</th>
-                                    <th>Poster Name</th>
                                     <th>Description</th>
-                                    <th>Poster Image</th>
-                                    <th>Poster Date</th>
+                                    <th>Image</th>
+                                    <th>Date</th>
                                     <th>Status</th>
                                     <th width="280px">Action</th>
                                     </tr>
@@ -38,22 +40,22 @@
                                 <tbody>
                                  <?php $i=1; 
                                    ?>
-                              @foreach ($poster as $pr)
+                              @foreach ($business_card as $business_card)
                                <tr>
                                 <td>{{$i}}</td>
-                                <td>{{ $pr->poster_name }}</td>
-                                <td>{{ $pr->description }}</td>
-                                <td><img alt="img" src="{{asset($pr->image)}}" width="100px"></td>
-                                <td>{{$pr->poster_date }}</td>
-                                <td>{{$pr->status }}</td>
+                                <td>{{ $business_card->description }}</td>
+                      
+                                <td><img alt="img" src="{{asset($business_card->image)}}" width="100px"></td>
+                                <td>{{ $business_card->date }}</td>
+                                <td>{{ $business_card->status }}</td>
                                 <td>
                                   <div class="action-wrap-btn">
 
-                                   <a href="{{route('poster.show',$pr->id)}}" class="btn btn-success btn-circle"><i class="fas fa-eye"></i></a>
+                                   <a href="{{ route('bcard.show',$business_card->id) }}" class="btn btn-success btn-circle"><i class="fas fa-eye"></i></a>
 
-                                   <a href="{{route('poster.edit',$pr->id)}}" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
+                                    <a href="{{ route('bcard.edit',$business_card->id) }}" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
 
-                                   <form action="{{route('poster.destroy',$pr->id)}}" method="post" style="display: inline-block">
+                                    <form action="{{ route('bcard.destroy', $business_card->id)}}" method="post" style="display: inline-block">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger btn-sm" type="submit"><i class="fas fa-trash"></i></button>

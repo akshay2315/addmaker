@@ -12,9 +12,13 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\IpostsController;
 use App\Http\Controllers\IndustryController;
 use App\Http\Controllers\FbookController;
+use App\Http\Controllers\BussinessCardController;
+
 use App\Http\Controllers\eventController;
 use App\Http\Controllers\twitterController;
 use App\Http\Controllers\PosterController;
+use App\Http\Controllers\youtubeController;
+
 
 
 
@@ -88,6 +92,25 @@ Route::get('/logout', [LogoutController::class, 'perform'])->name('logout.perfor
 Route::resource('posts', PostController::class);
 Route::resource('/iposts', IpostsController::class);
 
+
+
+
+
+
+ Route::resource('fbook', FbookController::class);
+ Route::resource('bcard', BussinessCardController::class);
+  Route::post('/update/bcard/{id}', [BussinessCardController::class,'update'])->name('bcard.update');
+
+
+
+
+//  Route::post('delete-industry', [IndustryController::class,'destroy']);
+//  Route::get('admins', [IndustryController::class, 'indexs'])->name('admins.index');
+
+ Route::resource('event', eventController::class);
+Route::resource('posts', PostController::class);
+Route::resource('/iposts', IpostsController::class);
+
 Route::resource('event', eventController::class);
 Route::post('update/event/{id}',[eventController::class, 'update'])->name('event.update');
 
@@ -100,8 +123,13 @@ Route::post('update/poster/{id}',[PosterController::class, 'update'])->name('pos
 Route::resource('fbook', FbookController::class);
 Route::post('/fbook_update/{id}', [FbookController::class,'update'])->name('fbook.update');
 
+
 Route::resource('industry', IndustryController::class);
 Route::post('/industry_update/{id}', [IndustryController::class,'update'])->name('industry.update');
 
 Route::resource('brands', BrandController::class);  //api
+
+
+Route::resource('youtube', youtubeController::class);
+Route::post('update/youtube/{id}',[youtubeController::class, 'update'])->name('youtube.update');
 
