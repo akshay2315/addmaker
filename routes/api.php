@@ -21,6 +21,7 @@ use App\Http\Controllers\API\AdminApiController;
 use App\Http\Controllers\API\youtube_data_controller;
 use App\Http\Controllers\API\contactcontroller;
 use App\Http\Controllers\API\instacontroller;
+use App\Http\Controllers\API\InstagramApiController;
 
 
 
@@ -37,9 +38,9 @@ use App\Http\Controllers\API\instacontroller;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-// Route::get('/display',[eventfetchController::class, 'fetch']);
+
 Route::post('register', [RegisterController::class, 'register']);
-// Route::post('login', [RegisterController::class, 'login']);
+
 
 Route::post('/login',[AuthOtpController::class, 'login']);
 
@@ -84,6 +85,11 @@ Route::get('/showpost',[FetchipostController::class, 'ipost']);
 
 
  // Route::post('/store', contactcontroller::class,'store');
+<<<<<<< Updated upstream
  Route::post('/store', [contactcontroller::class, 'store']);
  Route::get('/insta', [instacontroller::class, 'insta']);
+
+=======
+ Route::post('/store', [contactcontroller::class, 'store']);
+  Route::post('/ps', [InstagramApiController::class, 'instagram']);
 
