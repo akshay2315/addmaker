@@ -10,6 +10,7 @@ use App\Http\Controllers\IndustrytypeController;
 
 use App\Http\Controllers\BcardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\user_industryController;
 
 use App\Http\Controllers\API\fetchcontroller;
 use App\Http\Controllers\API\TwitController;
@@ -42,6 +43,7 @@ Route::get('/card',[BcardController::class, 'bcard']);
 
 Route::get('/home',[HomeController::class, 'home']);
 
+Route::post('/user_i',[user_industryController::class, 'store']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
