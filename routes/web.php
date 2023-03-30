@@ -66,8 +66,7 @@ Route::get('ind',function(){
     return view('industry.index');
 });
 
-       
-
+    
 Route::post('post-login', [AdminController::class, 'postLogin'])->name('login.post');
 
 Route::get('auth/google', [LoginController::class, 'redirectToGoogle']);        
