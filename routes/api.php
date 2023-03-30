@@ -64,12 +64,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
  Route::post('/add/brand',[BrandController::class, 'store']);
  Route::post('/edit/brand/{id}',[BrandController::class, 'edit']);
 
-// Route::get('admin',function(){
-//     return view('adminpage');
-// });
 //fetching for fb post
 Route::get('/displaypost',[FetchpostController::class, 'index']);
 
 // fetching for insta post
 Route::get('/showpost',[FetchipostController::class, 'ipost']);
+
+//fetch api of facebook ads and facebook posts 
+Route::get('facebook', [FacebookApiController::class, 'facebook']);
+
 
