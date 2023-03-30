@@ -1,24 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-use File;
-use App\Models\Facebook;
-use Illuminate\Http\Request;
 
-class FbookController extends Controller
+use App\Models\youtube;
+use Illuminate\Http\Request;
+use File;
+use Validator;
+
+class youtubeController extends Controller
 {
-   
-     /* Display a listing of the resource.
+    /**
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
-        $facebook = Facebook::latest()->paginate();
-      
-        return view('facebook.index',compact('facebook'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $youtube = youtube::latest()->paginate();
+       return view('youtube.index',compact('youtube'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -28,10 +28,8 @@ class FbookController extends Controller
      */
     public function create()
     {
-        //
-        return view('facebook.create');
-
-    }
+        return view('youtube.create');   
+     }
 
     /**
      * Store a newly created resource in storage.
@@ -41,92 +39,86 @@ class FbookController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $request->validate([
+        $validation = Validator::make($request->all(),[ 
             'title' => 'required',
             'description'=> 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'date'=> 'required',
             'status'=> 'required'
             ]);
-           
-
-            $path = public_path('image');
+        
+           $path = public_path('image');
 
             if(!File::isDirectory($path)){
             File::makeDirectory($path, 0777, true, true);
              $imageName = time().'.'.$request->image->extension();  
              $request->image->move(public_path('image'), $imageName);
-             $imagewithfolder = $imageName;
+             $imagewithfolder =$imageName;
 
             }else{
             $imageName = time().'.'.$request->image->extension();
             $request->image->move(public_path('image'), $imageName);
             $imagewithfolder = $imageName;
             }
-            $data = Facebook::create([
+            $data = youtube::create([
             'title' => $request->title,
             'description' => $request->description,
             'image' => $imagewithfolder,
-            'status' => $request->status,
-            ]);
-           
-           return redirect()->route('fbook.index')
-            ->with('success','Facebook has been created successfully.');
+            'date'=>  $request->date,
+            'status'=> $request->status,
+              ]);
+            return redirect()->route('youtube.index')
+          ->with('success','thumbnail has been created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Facebook  $facebook
+     * @param  \App\Models\youtube  $youtube
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
-        $data= Facebook::find($id);
-        return view('facebook.show',compact('data'));
+        $data= youtube::find($id);
+        return view('youtube.show',compact('data'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Facebook  $facebook
+     * @param  \App\Models\youtube  $youtube
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
-        $data= Facebook::find($id);
-        return view('facebook.edit',compact('data'));
+          $data= youtube::find($id);
+        return view('youtube.edit',compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Facebook  $facebook
+     * @param  \App\Models\youtube  $youtube
      * @return \Illuminate\Http\Response
      */
+    public function update(Request $request, youtube $youtube)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'date'=> 'required',
+            'status'=> 'required'
+            ]);
 
-    public function update(Request $request,$id)
-    { 
-
-      $request->validate([
-        'title' => 'required',    
-        'description' => 'required', 
-        'status' => 'required'
-      ]);
-
-    //  print_r($request->all());exit();
-
-      if($_FILES['image']['name'] != ''){
+       if($_FILES['image']['name'] != ''){
             //upload image
         $path = public_path('image');
 
         if(!File::isDirectory($path)){
           File::makeDirectory($path, 0777, true, true);
           $imageName = time().'.'.$request->image->extension();  
-          $request->image->move(public_path('image'), $imageName);
+          $request->imageimage->move(public_path('image'), $imageName);
           $imagewithfolder = $imageName;
 
         }else{
@@ -135,37 +127,40 @@ class FbookController extends Controller
           $imagewithfolder = $imageName;
         }
 
-        $UpdateDetails = Facebook::where('id', $request->id)->update(array(
+        $UpdateDetails = youtube::where('id', $request->id)->update(array(
        "title" => $request->title,
        "description" => $request->description,
        "image" => $imagewithfolder,
-       "status" => $request->status,
+       "date" => $request->date,
+        "status" => $request->status,
+
      ));
 
       }else{
-       $UpdateDetails = Facebook::where('id', $request->id)->update(array(
+       $UpdateDetails = youtube::where('id', $request->id)->update(array(
         "title" => $request->title,
         "description" => $request->description,
+        "date" => $request->date,
         "status" => $request->status,
+
      ));
 
       }
-      return redirect()->route('fbook.index')
-                   ->with('success','Facebook updated successfully');
-
+      return redirect()->route('youtube.index')
+          ->with('success','upcoming events has been created successfully.');
+  
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Facebook  $facebook
+     * @param  \App\Models\youtube  $youtube
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
-        $idd = Facebook::findOrFail($id);
+        $idd = youtube::findOrFail($id);
         $idd->delete();
-        return redirect('/fbook')->with('completed', 'Facebook has been deleted');
+        return redirect('/youtube')->with('completed', 'event has been deleted');
     }
 }

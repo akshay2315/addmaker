@@ -6,9 +6,9 @@
 <section>
     <div class="container-fluid">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Poster</h1>
+            <h1 class="h3 mb-0 text-gray-800">Youtube</h1>
 
-            <a href="{{route('poster.create')}}" class="btn btn-primary btn-icon-split">
+            <a href="{{route('youtube.create')}}" class="btn btn-primary btn-icon-split">
                 <span class="icon text-white-50">
                     <i class="fa fa-plus" style="font-size:24px"></i>
                 </span>
@@ -26,10 +26,10 @@
                                 <thead>
                                     <tr>
                                     <th>Id</th>
-                                    <th>Poster Name</th>
+                                    <th>Title</th>
                                     <th>Description</th>
-                                    <th>Poster Image</th>
-                                    <th>Poster Date</th>
+                                    <th>Image</th>
+                                    <th>Date</th>
                                     <th>Status</th>
                                     <th width="280px">Action</th>
                                     </tr>
@@ -38,22 +38,22 @@
                                 <tbody>
                                  <?php $i=1; 
                                    ?>
-                              @foreach ($poster as $pr)
+                              @foreach ($youtube as $yo)
                                <tr>
                                 <td>{{$i}}</td>
-                                <td>{{ $pr->poster_name }}</td>
-                                <td>{{ $pr->description }}</td>
-                                <td><img alt="img" src="{{asset($pr->image)}}" width="100px"></td>
-                                <td>{{$pr->poster_date }}</td>
-                                <td>{{$pr->status }}</td>
+                                <td>{{ $yo->title }}</td>
+                                <td>{{ $yo->description }}</td>
+                                <td><img alt="img" src="{{asset($yo->image)}}" width="100px"></td>
+                                 <td>{{$yo->date }}</td>
+                                <td>{{ $yo->status }}</td>
                                 <td>
                                   <div class="action-wrap-btn">
 
-                                   <a href="{{route('poster.show',$pr->id)}}" class="btn btn-success btn-circle"><i class="fas fa-eye"></i></a>
+                                   <a href="{{route('youtube.show',$yo->id)}}" class="btn btn-success btn-circle"><i class="fas fa-eye"></i></a>
 
-                                   <a href="{{route('poster.edit',$pr->id)}}" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
+                                   <a href="{{route('youtube.edit',$yo->id)}}" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
 
-                                   <form action="{{route('poster.destroy',$pr->id)}}" method="post" style="display: inline-block">
+                                   <form action="{{route('youtube.destroy',$yo->id)}}" method="post" style="display: inline-block">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger btn-sm" type="submit"><i class="fas fa-trash"></i></button>

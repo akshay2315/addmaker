@@ -107,7 +107,18 @@
                   <i class="menu-icon mdi mdi-file-document"></i>
                     <span class="menu-title">Twitter</span>
                 </a>
-
+                <a class="nav-link" href="{{ url('poster') }}">
+                  <i class="menu-icon mdi mdi-file-document"></i>
+                    <span class="menu-title">Poster</span>
+                </a>
+                <a class="nav-link" href="{{ url('youtube') }}">
+                  <i class="menu-icon mdi mdi-file-document"></i>
+                    <span class="menu-title">Youtube</span>
+                </a>
+                  <a class="nav-link" href="{{ url('instagram') }}">
+                  <i class="menu-icon mdi mdi-file-document"></i>
+                    <span class="menu-title">Instagram Stories</span>
+                </a>
                 </a>
             </li>
 
