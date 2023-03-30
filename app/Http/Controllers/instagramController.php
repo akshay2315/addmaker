@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\youtube;
+use App\Models\instagram;
 use Illuminate\Http\Request;
 use File;
 use Validator;
 
-class youtubeController extends Controller
+class instagramController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class youtubeController extends Controller
      */
     public function index()
     {
-        $youtube = youtube::latest()->paginate();
-       return view('youtube.index',compact('youtube'))
+        $instagram = instagram::latest()->paginate();
+       return view('instagram.index',compact('instagram'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -28,8 +28,8 @@ class youtubeController extends Controller
      */
     public function create()
     {
-        return view('youtube.create');   
-     }
+        return view('instagram.create');   
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -39,7 +39,7 @@ class youtubeController extends Controller
      */
     public function store(Request $request)
     {
-        $validation = Validator::make($request->all(),[ 
+         $validation = Validator::make($request->all(),[ 
             'title' => 'required',
             'description'=> 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -60,49 +60,49 @@ class youtubeController extends Controller
             $request->image->move(public_path('image'), $imageName);
             $imagewithfolder = $imageName;
             }
-            $data = youtube::create([
+            $data = instagram::create([
             'title' => $request->title,
             'description' => $request->description,
             'image' => $imagewithfolder,
             'date'=>  $request->date,
             'status'=> $request->status,
               ]);
-            return redirect()->route('youtube.index')
-          ->with('success','thumbnail has been created successfully.');
+            return redirect()->route('instagram.index')
+          ->with('success','instagram stories  has been created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\youtube  $youtube
+     * @param  \App\Models\instagram  $instagram
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $data= youtube::find($id);
-        return view('youtube.show',compact('data'));
+         $data= instagram::find($id);
+        return view('instagram.show',compact('data'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\youtube  $youtube
+     * @param  \App\Models\instagram  $instagram
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-          $data= youtube::find($id);
-        return view('youtube.edit',compact('data'));
+         $data= instagram::find($id);
+        return view('instagram.edit',compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\youtube  $youtube
+     * @param  \App\Models\instagram  $instagram
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, youtube $youtube)
+    public function update(Request $request, instagram $instagram)
     {
         $request->validate([
             'title' => 'required',
@@ -127,7 +127,7 @@ class youtubeController extends Controller
           $imagewithfolder = $imageName;
         }
 
-        $UpdateDetails = youtube::where('id', $request->id)->update(array(
+        $UpdateDetails = instagram::where('id', $request->id)->update(array(
        "title" => $request->title,
        "description" => $request->description,
        "image" => $imagewithfolder,
@@ -137,16 +137,14 @@ class youtubeController extends Controller
      ));
 
       }else{
-       $UpdateDetails = youtube::where('id', $request->id)->update(array(
+       $UpdateDetails = instagram::where('id', $request->id)->update(array(
         "title" => $request->title,
         "description" => $request->description,
         "date" => $request->date,
         "status" => $request->status,
-
      ));
-
       }
-      return redirect()->route('youtube.index')
+      return redirect()->route('instagram.index')
           ->with('success','upcoming events has been created successfully.');
   
     }
@@ -154,13 +152,14 @@ class youtubeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\youtube  $youtube
+     * @param  \App\Models\instagram  $instagram
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $idd = youtube::findOrFail($id);
+        
+        $idd = instagram::findOrFail($id);
         $idd->delete();
-        return redirect('/youtube')->with('completed', 'event has been deleted');
+        return redirect('/instagram')->with('completed', 'event has been deleted');
     }
 }

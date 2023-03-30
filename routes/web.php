@@ -18,6 +18,7 @@ use App\Http\Controllers\eventController;
 use App\Http\Controllers\twitterController;
 use App\Http\Controllers\PosterController;
 use App\Http\Controllers\youtubeController;
+use App\Http\Controllers\instagramController;
 
 
 
@@ -122,3 +123,6 @@ Route::post('/fbook_update/{id}', [FbookController::class,'update'])->name('fboo
 
 Route::resource('youtube', youtubeController::class);
 Route::post('update/youtube/{id}',[youtubeController::class, 'update'])->name('youtube.update');
+
+Route::resource('instagram', instagramController::class);
+Route::post('update/instagram/{id}',[instagramController::class, 'update'])->name('instagram.update');

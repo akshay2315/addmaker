@@ -16,6 +16,8 @@ use App\Http\Controllers\API\TwitController;
 use App\Http\Controllers\API\poster_data_controller;
 use App\Http\Controllers\API\youtube_data_controller;
 use App\Http\Controllers\API\contactcontroller;
+use App\Http\Controllers\API\instacontroller;
+
 
 
 
@@ -64,3 +66,4 @@ Route::get('/showpost',[FetchipostController::class, 'ipost']);
 
  // Route::post('/store', contactcontroller::class,'store');
  Route::post('/store', [contactcontroller::class, 'store']);
+ Route::get('/insta', [instacontroller::class, 'insta']);
