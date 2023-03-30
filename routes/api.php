@@ -14,9 +14,13 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\API\fetchcontroller;
 use App\Http\Controllers\API\TwitController;
 use App\Http\Controllers\API\poster_data_controller;
+use App\Http\Controllers\API\BrandController;
+use App\Http\Controllers\API\FacebookApiController;
+use App\Http\Controllers\API\AdminApiController;
 use App\Http\Controllers\API\youtube_data_controller;
 use App\Http\Controllers\API\contactcontroller;
 use App\Http\Controllers\API\instacontroller;
+
 
 
 
@@ -46,6 +50,11 @@ Route::get('/card',[BcardController::class, 'bcard']);
 
 Route::get('/home',[HomeController::class, 'home']);
 
+Route::get('fbook', [FacebookApiController::class, 'index']);
+
+Route::put('edit/{id}', [ AdminApiController::class, 'edit']);
+Route::delete('delete/{id}', [ AdminApiController::class, 'delete']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -54,6 +63,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
  Route::get('/twitter',[TwitController::class, 'twitter']);
  Route::get('/poster',[poster_data_controller::class, 'poster']);
  Route::get('/youtube',[youtube_data_controller::class, 'youtube']);
+
+
+ Route::post('/add/brand',[BrandController::class, 'store']);
+ Route::post('/edit/brand/{id}',[BrandController::class, 'edit']);
 
 // Route::get('admin',function(){
 //     return view('adminpage');
@@ -64,6 +77,8 @@ Route::get('/displaypost',[FetchpostController::class, 'index']);
 // fetching for insta post
 Route::get('/showpost',[FetchipostController::class, 'ipost']);
 
+
  // Route::post('/store', contactcontroller::class,'store');
  Route::post('/store', [contactcontroller::class, 'store']);
  Route::get('/insta', [instacontroller::class, 'insta']);
+
