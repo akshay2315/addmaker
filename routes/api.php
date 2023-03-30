@@ -18,6 +18,10 @@ use App\Http\Controllers\API\BrandController;
 use App\Http\Controllers\API\FacebookApiController;
 use App\Http\Controllers\API\AdminApiController;
 use App\Http\Controllers\API\youtube_data_controller;
+use App\Http\Controllers\API\contactcontroller;
+use App\Http\Controllers\API\instacontroller;
+
+
 
 
 
@@ -72,4 +76,9 @@ Route::get('/displaypost',[FetchpostController::class, 'index']);
 
 // fetching for insta post
 Route::get('/showpost',[FetchipostController::class, 'ipost']);
+
+
+ // Route::post('/store', contactcontroller::class,'store');
+ Route::post('/store', [contactcontroller::class, 'store']);
+ Route::get('/insta', [instacontroller::class, 'insta']);
 

@@ -18,6 +18,7 @@ use App\Http\Controllers\eventController;
 use App\Http\Controllers\twitterController;
 use App\Http\Controllers\PosterController;
 use App\Http\Controllers\youtubeController;
+use App\Http\Controllers\instagramController;
 
 
 
@@ -132,4 +133,8 @@ Route::resource('brands', BrandController::class);  //api
 
 Route::resource('youtube', youtubeController::class);
 Route::post('update/youtube/{id}',[youtubeController::class, 'update'])->name('youtube.update');
+
+
+Route::resource('instagram', instagramController::class);
+Route::post('update/instagram/{id}',[instagramController::class, 'update'])->name('instagram.update');
 
