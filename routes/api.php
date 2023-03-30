@@ -15,6 +15,13 @@ use App\Http\Controllers\API\fetchcontroller;
 use App\Http\Controllers\API\TwitController;
 use App\Http\Controllers\API\poster_data_controller;
 use App\Http\Controllers\API\youtube_data_controller;
+use App\Http\Controllers\API\InstagramApiController;
+
+use App\Http\Controllers\API\contactcontroller;
+use App\Http\Controllers\API\instacontroller;
+
+
+
 
 
 
