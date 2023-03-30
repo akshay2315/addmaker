@@ -35,12 +35,12 @@ class IpostsController extends Controller
             File::makeDirectory($path, 0777, true, true);
              $imageName = time().'.'.$request->images->extension();  
              $request->images->move(public_path('images'), $imageName);
-             $imagewithfolder = 'public\images\\'.$imageName;
+             $imagewithfolder = $imageName;
 
             }else{
             $imageName = time().'.'.$request->images->extension();
             $request->images->move(public_path('images'), $imageName);
-            $imagewithfolder = 'public\images\\'.$imageName;
+            $imagewithfolder = $imageName;
             }
             $data = Iposts::create([
             'title' => $request->title,
@@ -82,12 +82,12 @@ class IpostsController extends Controller
               File::makeDirectory($path, 0777, true, true);
               $imageName = time().'.'.$request->images->extension();  
               $request->images->move(public_path('images'), $imageName);
-              $imagewithfolder = 'public\images\\'.$imageName;
+              $imagewithfolder = $imageName;
     
             }else{
               $imageName = time().'.'.$request->images->extension();
               $request->images->move(public_path('images'), $imageName);
-              $imagewithfolder = 'public\images\\'.$imageName;
+              $imagewithfolder = $imageName;
             }
     
             $UpdateDetails = Iposts::where('id', $request->id)->update(array(

@@ -61,12 +61,12 @@ class eventController extends Controller
             File::makeDirectory($path, 0777, true, true);
              $imageName = time().'.'.$request->icon->extension();  
              $request->icon->move(public_path('images'), $imageName);
-             $imagewithfolder = 'public\images\\'.$imageName;
+             $imagewithfolder = $imageName;
 
             }else{
             $imageName = time().'.'.$request->icon->extension();
             $request->icon->move(public_path('images'), $imageName);
-            $imagewithfolder = 'public\images\\'.$imageName;
+            $imagewithfolder = $imageName;
             }
             $data = upcomingevents::create([
             'title' => $request->title,
