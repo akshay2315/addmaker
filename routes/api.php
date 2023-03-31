@@ -43,7 +43,7 @@ Route::post('register', [RegisterController::class, 'register']);
 
 Route::post('/login',[AuthOtpController::class, 'login']);
 
-Route::get('/display',[IndustrytypeController::class, 'index']);
+Route::get('/industry',[IndustrytypeController::class, 'index']);
 
 Route::get('/select/{id}',[IndustrytypeController::class, 'select']);
 

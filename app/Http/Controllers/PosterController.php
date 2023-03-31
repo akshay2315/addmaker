@@ -47,17 +47,17 @@ class PosterController extends Controller
             'status'=>      'required'
             ]);
         
-          $path = public_path('image');
+          $path = public_path('poster_img');
 
             if(!File::isDirectory($path)){
             File::makeDirectory($path, 0777, true, true);
              $imageName = time().'.'.$request->poster_img->extension();  
-             $request->poster_img->move(public_path('image'), $imageName);
+             $request->poster_img->move(public_path('poster_img'), $imageName);
              $imagewithfolder = $imageName;
 
             }else{
             $imageName = time().'.'.$request->poster_img->extension();
-            $request->poster_img->move(public_path('image'), $imageName);
+            $request->poster_img->move(public_path('poster_img'), $imageName);
             $imagewithfolder = $imageName;
             }
             $data = poster::create([
@@ -115,17 +115,17 @@ class PosterController extends Controller
 
        if($_FILES['poster_img']['name'] != ''){
             //upload image
-        $path = public_path('image');
+        $path = public_path('poster_img');
 
         if(!File::isDirectory($path)){
           File::makeDirectory($path, 0777, true, true);
           $imageName = time().'.'.$request->poster_img->extension();  
-          $request->poster_img->move(public_path('image'), $imageName);
+          $request->poster_img->move(public_path('poster_img'), $imageName);
           $imagewithfolder = $imageName;
 
         }else{
           $imageName = time().'.'.$request->poster_img->extension();
-          $request->poster_img->move(public_path('image'), $imageName);
+          $request->poster_img->move(public_path('poster_img'), $imageName);
           $imagewithfolder = $imageName;
         }
 

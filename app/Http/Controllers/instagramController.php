@@ -47,17 +47,17 @@ class instagramController extends Controller
             'status'=> 'required'
             ]);
         
-           $path = public_path('image');
+           $path = public_path('insta_img');
 
             if(!File::isDirectory($path)){
             File::makeDirectory($path, 0777, true, true);
              $imageName = time().'.'.$request->image->extension();  
-             $request->image->move(public_path('image'), $imageName);
+             $request->image->move(public_path('insta_img'), $imageName);
              $imagewithfolder =$imageName;
 
             }else{
             $imageName = time().'.'.$request->image->extension();
-            $request->image->move(public_path('image'), $imageName);
+            $request->image->move(public_path('insta_img'), $imageName);
             $imagewithfolder = $imageName;
             }
             $data = instagram::create([
@@ -113,17 +113,17 @@ class instagramController extends Controller
 
        if($_FILES['image']['name'] != ''){
             //upload image
-        $path = public_path('image');
+        $path = public_path('insta_img');
 
         if(!File::isDirectory($path)){
           File::makeDirectory($path, 0777, true, true);
           $imageName = time().'.'.$request->image->extension();  
-          $request->imageimage->move(public_path('image'), $imageName);
+          $request->imageimage->move(public_path('insta_img'), $imageName);
           $imagewithfolder = $imageName;
 
         }else{
           $imageName = time().'.'.$request->image->extension();
-          $request->image->move(public_path('image'), $imageName);
+          $request->image->move(public_path('insta_img'), $imageName);
           $imagewithfolder = $imageName;
         }
 
