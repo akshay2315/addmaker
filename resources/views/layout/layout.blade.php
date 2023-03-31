@@ -113,9 +113,18 @@
                     <span class="menu-title">Youtube</span>
                 </a>
 
+                
+
                 <a class="nav-link" href="{{ url('bcard') }}">
                   <i class="menu-icon mdi mdi-file-document"></i>
                     <span class="menu-title">Business Card</span>
+
+                    
+                  <a class="nav-link" href="{{ url('instagram') }}">
+                  <i class="menu-icon mdi mdi-file-document"></i>
+                    <span class="menu-title">Instagram Stories</span>
+
+                    
                 </a>
                 </a>
             </li>

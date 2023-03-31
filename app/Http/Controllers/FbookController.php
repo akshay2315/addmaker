@@ -55,12 +55,20 @@ class FbookController extends Controller
             if(!File::isDirectory($path)){
             File::makeDirectory($path, 0777, true, true);
              $imageName = time().'.'.$request->image->extension();  
+
              $request->image->move(public_path('facebook_image'), $imageName);
+
+             $request->image->move(public_path('image'), $imageName);
+
              $imagewithfolder = $imageName;
 
             }else{
             $imageName = time().'.'.$request->image->extension();
+
             $request->image->move(public_path('facebook_image'), $imageName);
+
+            $request->image->move(public_path('image'), $imageName);
+
             $imagewithfolder = $imageName;
             }
             $data = Facebook::create([
@@ -126,12 +134,20 @@ class FbookController extends Controller
         if(!File::isDirectory($path)){
           File::makeDirectory($path, 0777, true, true);
           $imageName = time().'.'.$request->image->extension();  
+
           $request->image->move(public_path('facebook_image'), $imageName);
+
+          $request->image->move(public_path('image'), $imageName);
+
           $imagewithfolder = $imageName;
 
         }else{
           $imageName = time().'.'.$request->image->extension();
+
           $request->image->move(public_path('facebook_image'), $imageName);
+
+          $request->image->move(public_path('image'), $imageName);
+
           $imagewithfolder = $imageName;
         }
 

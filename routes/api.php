@@ -11,6 +11,7 @@ use App\Http\Controllers\AuthOtpController;
 use App\Http\Controllers\IndustrytypeController;
 use App\Http\Controllers\BcardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\user_industryController;
 use App\Http\Controllers\API\fetchcontroller;
 use App\Http\Controllers\API\TwitController;
 use App\Http\Controllers\API\poster_data_controller;
@@ -19,6 +20,15 @@ use App\Http\Controllers\API\FacebookApiController;
 use App\Http\Controllers\API\AdminApiController;
 use App\Http\Controllers\API\youtube_data_controller;
 use App\Http\Controllers\API\InstagramApiController;
+
+
+use App\Http\Controllers\API\contactcontroller;
+use App\Http\Controllers\API\instacontroller;
+use App\Http\Controllers\API\InstagramApiController;
+
+
+
+
 
 
 /*
@@ -31,9 +41,9 @@ use App\Http\Controllers\API\InstagramApiController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-// Route::get('/display',[eventfetchController::class, 'fetch']);
+
 Route::post('register', [RegisterController::class, 'register']);
-// Route::post('login', [RegisterController::class, 'login']);
+
 
 Route::post('/login',[AuthOtpController::class, 'login']);
 
@@ -45,10 +55,14 @@ Route::get('/card',[BcardController::class, 'bcard']);
 
 Route::get('/home',[HomeController::class, 'home']);
 
+
+Route::post('/user_i',[user_industryController::class, 'store']);
+
 Route::get('fbook', [FacebookApiController::class, 'index']);
 
 Route::put('edit/{id}', [ AdminApiController::class, 'edit']);
 Route::delete('delete/{id}', [ AdminApiController::class, 'delete']);
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -70,7 +84,20 @@ Route::get('/displaypost',[FetchpostController::class, 'index']);
 // fetching for insta post
 Route::get('/showpost',[FetchipostController::class, 'ipost']);
 
+
 //fetch api of facebook ads and facebook posts 
 Route::get('facebook', [FacebookApiController::class, 'facebook']);
 Route::post('/instagram',[InstagramApiController::class, 'instagram']);
+
+
+ // Route::post('/store', contactcontroller::class,'store');
+
+ Route::post('/store', [contactcontroller::class, 'store']);
+ Route::get('/insta', [instacontroller::class, 'insta']);
+
+
+ Route::post('/store', [contactcontroller::class, 'store']);
+  Route::post('/ps', [InstagramApiController::class, 'instagram']);
+
+
 
