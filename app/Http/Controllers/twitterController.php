@@ -56,12 +56,12 @@ class twitterController extends Controller
             File::makeDirectory($path, 0777, true, true);
              $imageName = time().'.'.$request->image->extension();  
              $request->image->move(public_path('image'), $imageName);
-             $imagewithfolder = 'public\image\\'.$imageName;
+             $imagewithfolder = $imageName;
 
             }else{
             $imageName = time().'.'.$request->image->extension();
             $request->image->move(public_path('image'), $imageName);
-            $imagewithfolder = 'public\image\\'.$imageName;
+            $imagewithfolder = $imageName;
             }
             $data = twitter::create([
             'title' => $request->title,
@@ -126,12 +126,12 @@ class twitterController extends Controller
           File::makeDirectory($path, 0777, true, true);
           $imageName = time().'.'.$request->image->extension();  
           $request->imageimage->move(public_path('image'), $imageName);
-          $imagewithfolder = 'public\image\\'.$imageName;
+          $imagewithfolder = $imageName;
 
         }else{
           $imageName = time().'.'.$request->image->extension();
           $request->image->move(public_path('image'), $imageName);
-          $imagewithfolder = 'public\image\\'.$imageName;
+          $imagewithfolder = $imageName;
         }
 
         $UpdateDetails = twitter::where('id', $request->id)->update(array(

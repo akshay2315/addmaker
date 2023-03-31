@@ -6,9 +6,9 @@
 <section>
     <div class="container-fluid">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Poster</h1>
+            <h1 class="h3 mb-0 text-gray-800">Instagram Stories</h1>
 
-            <a href="{{route('poster.create')}}" class="btn btn-primary btn-icon-split">
+            <a href="{{route('instagram.create')}}" class="btn btn-primary btn-icon-split">
                 <span class="icon text-white-50">
                     <i class="fa fa-plus" style="font-size:24px"></i>
                 </span>
@@ -26,10 +26,10 @@
                                 <thead>
                                     <tr>
                                     <th>Id</th>
-                                    <th>Poster Name</th>
+                                    <th>Title</th>
                                     <th>Description</th>
-                                    <th>Poster Image</th>
-                                    <th>Poster Date</th>
+                                    <th>Image</th>
+                                    <th>Date</th>
                                     <th>Status</th>
                                     <th width="280px">Action</th>
                                     </tr>
@@ -38,22 +38,22 @@
                                 <tbody>
                                  <?php $i=1; 
                                    ?>
-                              @foreach ($poster as $pr)
+                              @foreach ($instagram as $insta)
                                <tr>
                                 <td>{{$i}}</td>
-                                <td>{{ $pr->poster_name }}</td>
-                                <td>{{ $pr->description }}</td>
-                                <td><img alt="img" src="{{asset($pr->image)}}" width="100px"></td>
-                                <td>{{$pr->poster_date }}</td>
-                                <td>{{$pr->status }}</td>
+                                <td>{{ $insta->title }}</td>
+                                <td>{{ $insta->description }}</td>
+                                <td><img alt="img" src="{{asset($insta->image)}}" width="100px"></td>
+                                 <td>{{$insta->date }}</td>
+                                <td>{{ $insta->status }}</td>
                                 <td>
                                   <div class="action-wrap-btn">
 
-                                   <a href="{{route('poster.show',$pr->id)}}" class="btn btn-success btn-circle"><i class="fas fa-eye"></i></a>
+                                   <a href="{{route('instagram.show',$insta->id)}}" class="btn btn-success btn-circle"><i class="fas fa-eye"></i></a>
 
-                                   <a href="{{route('poster.edit',$pr->id)}}" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
+                                   <a href="{{route('instagram.edit',$insta->id)}}" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
 
-                                   <form action="{{route('poster.destroy',$pr->id)}}" method="post" style="display: inline-block">
+                                   <form action="{{route('instagram.destroy',$insta->id)}}" method="post" style="display: inline-block">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger btn-sm" type="submit"><i class="fas fa-trash"></i></button>
