@@ -87,14 +87,16 @@ class BrandController extends BaseController
         //
         $input = $request->all();
         $brand = Brand::find($id);
-        // print_r($input);exit();
+        print_r($input);exit();
         $validator = Validator::make($input, [
             'name' => 'required',
             'contact' => 'required',
             'address' => 'required',
             'website' => 'required',
             'tagline' => 'required',
-            'services' => 'required'
+            'services' => 'required',
+            'display_media' => 'required',
+            'brand_icon' => 'required',
         
             ]);
             if($validator->fails()){
@@ -105,7 +107,9 @@ class BrandController extends BaseController
             $brand->address = $input['address'];
             $brand->website = $input['website'];
             $brand->tagline = $input['tagline'];
-            $brand->services = $input['services'];           
+            $brand->services = $input['services']; 
+            $brand->display_media = $input['display_media'];
+            $brand->brand_icon = $input['brand_icon'];          
             $brand->save();
                            
             return response()->json([

@@ -13,9 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('industry', function (Blueprint $table) {
+        Schema::create('brand', function (Blueprint $table) {
             $table->id();
-            $table->string('industry_type');
+            $table->string('name');
+            $table->string('contact');
+            $table->text('address');
+            $table->text('website');
+            $table->text('tagline');
+            $table->text('services');
+            $table->text('display_media');
+            $table->string('brand_icon');
             $table->timestamps();
         });
     }
@@ -27,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('industry');
+        Schema::dropIfExists('brand');
     }
 };

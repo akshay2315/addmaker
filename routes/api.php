@@ -17,13 +17,8 @@ use App\Http\Controllers\API\poster_data_controller;
 use App\Http\Controllers\API\BrandController;
 use App\Http\Controllers\API\FacebookApiController;
 use App\Http\Controllers\API\AdminApiController;
-<<<<<<< Updated upstream
 use App\Http\Controllers\API\youtube_data_controller;
-=======
 use App\Http\Controllers\API\InstagramApiController;
->>>>>>> Stashed changes
-
-
 
 
 /*
@@ -68,7 +63,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
  Route::post('/add/brand',[BrandController::class, 'store']);
  Route::post('/edit/brand/{id}',[BrandController::class, 'edit']);
 
-<<<<<<< Updated upstream
+
 //fetching for fb post
 Route::get('/displaypost',[FetchpostController::class, 'index']);
 
@@ -77,8 +72,5 @@ Route::get('/showpost',[FetchipostController::class, 'ipost']);
 
 //fetch api of facebook ads and facebook posts 
 Route::get('facebook', [FacebookApiController::class, 'facebook']);
+Route::post('/instagram',[InstagramApiController::class, 'instagram']);
 
-
-=======
- Route::post('/instagram',[InstagramApiController::class, 'instagram']);
->>>>>>> Stashed changes
