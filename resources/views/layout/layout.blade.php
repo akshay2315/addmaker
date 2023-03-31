@@ -85,6 +85,12 @@
                     <span class="menu-title">Facebook</span>
                 </a>
 
+
+                 <a class="nav-link" href="{{ url('bcard') }}">
+                  <i class="menu-icon mdi mdi-file-document"></i>
+                    <span class="menu-title">Bussiness Card</span>
+                </a>
+
                 <a class="nav-link" href="{{ url('posts') }}">
                   <i class="menu-icon mdi mdi-file-document"></i>
                     <span class="menu-title">Facebook Posts</span>

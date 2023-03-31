@@ -8,13 +8,14 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Bussiness_card</h1>
 
-            <div class="pull-right">
-              <a class="btn btn-success" href="{{ route('bcard.create') }}"> Create New Product</a>
-            </div>
-
+            <a href="{{route('bcard.create')}}" class="btn btn-primary btn-icon-split">
                 <span class="icon text-white-50">
                     <i class="fa fa-plus" style="font-size:24px"></i>
                 </span>
+                <span class="text">Add Type</span></a>
+            </div>
+
+
                 <span class="text">Add Type</span></a>
             </div>
             <div class="container-fluid">
