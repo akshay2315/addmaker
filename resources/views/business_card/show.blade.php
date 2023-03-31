@@ -21,13 +21,23 @@
             <div class="form-group">
             <br><br><strong>Description:</strong><br>
                 {{ $data->description }}
-
-            <br><br><strong>Image:</strong><br>
-                {{ $data->image }}
-
-             <br><br><strong>Date:</strong><br>
+            </div>  
+        </div>
+        
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+            <br><br><strong> Image:</strong><br>
+            <img src="{{asset($data->image)}}" alt="{{$data->description}}" style="width: 100px;"> 
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+            <br><br><strong>Date:</strong><br>
                 {{ $data->date }}
-
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
             <br><br><strong>Status:</strong><br>
                 {{ $data->status }}
             </div>

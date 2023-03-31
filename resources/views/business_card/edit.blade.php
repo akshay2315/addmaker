@@ -41,8 +41,9 @@
 
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
-<strong>Image:</strong>
-<input type="file" name="image" value="{{ $data->image }}" class="form-control" placeholder="image">
+<strong>Industry Image:</strong>
+<input type="file" name="image" class="form-control" placeholder="Image">
+<img src="{{asset($data->image)}}" alt="{{$data->description}}" style="width: 100px;">
 @error('name')
 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
 @enderror
@@ -61,7 +62,7 @@
 
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
-<strong>Status:</strong>
+<strong>Status:</strong>  
 <input type="text" name="status" value="{{ $data->status }}" class="form-control" placeholder="status">
 @error('name')
 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
