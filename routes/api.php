@@ -21,7 +21,7 @@ use App\Http\Controllers\API\youtube_data_controller;
 use App\Http\Controllers\API\contactcontroller;
 use App\Http\Controllers\API\instacontroller;
 use App\Http\Controllers\API\InstagramApiController;
-
+use App\Http\Controllers\API\ProfileController;
 
 
 
@@ -87,4 +87,6 @@ Route::get('/showpost',[FetchipostController::class, 'ipost']);
 =======
  Route::post('/store', [contactcontroller::class, 'store']);
   Route::post('/ps', [InstagramApiController::class, 'instagram']);
+
+ Route::resource('/profile',ProfileController::class);
 
