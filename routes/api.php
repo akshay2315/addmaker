@@ -12,6 +12,8 @@ use App\Http\Controllers\IndustrytypeController;
 use App\Http\Controllers\BcardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\user_industryController;
+use App\Http\Controllers\FavoriteController;
+
 use App\Http\Controllers\API\fetchcontroller;
 use App\Http\Controllers\API\TwitController;
 use App\Http\Controllers\API\poster_data_controller;
