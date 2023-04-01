@@ -8,6 +8,21 @@ use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\Auth\AdminController;
 use App\Http\Controllers\LogoutController;
 
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\IpostsController;
+use App\Http\Controllers\IndustryController;
+use App\Http\Controllers\FbookController;
+use App\Http\Controllers\BussinessCardController;
+
+use App\Http\Controllers\eventController;
+use App\Http\Controllers\twitterController;
+use App\Http\Controllers\PosterController;
+use App\Http\Controllers\youtubeController;
+use App\Http\Controllers\instagramController;
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,7 +60,11 @@ Route::get('page',function(){
 });
 
 Route::get('dash',function(){
-    return view('admin1.dashboard');
+    return view('dashboard');
+});
+
+Route::get('ind',function(){
+    return view('industry.index');
 });
 
        
@@ -68,5 +87,57 @@ Route::group(['middleware' => ['auth']], function() {
     /**
     * Logout Route
     */
-    Route::get('/logout', [LogoutController::class, 'perform'])->name('logout.perform');
+Route::get('/logout', [LogoutController::class, 'perform'])->name('logout.perform');
  });
+
+Route::resource('posts', PostController::class);
+Route::resource('/iposts', IpostsController::class);
+
+
+
+
+
+
+ Route::resource('fbook', FbookController::class);
+ Route::resource('bcard', BussinessCardController::class);
+  Route::post('/update/bcard/{id}', [BussinessCardController::class,'update'])->name('bcard.update');
+
+
+
+
+//  Route::post('delete-industry', [IndustryController::class,'destroy']);
+//  Route::get('admins', [IndustryController::class, 'indexs'])->name('admins.index');
+
+ Route::resource('event', eventController::class);
+Route::resource('posts', PostController::class);
+Route::resource('/iposts', IpostsController::class);
+
+Route::resource('event', eventController::class);
+Route::post('update/event/{id}',[eventController::class, 'update'])->name('event.update');
+
+Route::resource('twitter', twitterController::class);
+Route::post('update/twitter/{id}',[twitterController::class, 'update'])->name('twitter.update');
+
+Route::resource('poster', PosterController::class);
+Route::post('update/poster/{id}',[PosterController::class, 'update'])->name('poster.update');
+
+Route::resource('fbook', FbookController::class);
+Route::post('/fbook_update/{id}', [FbookController::class,'update'])->name('fbook.update');
+
+
+Route::resource('industry', IndustryController::class);
+Route::post('/industry_update/{id}', [IndustryController::class,'update'])->name('industry.update');
+
+Route::resource('brands', BrandController::class);  //api
+
+
+Route::resource('youtube', youtubeController::class);
+Route::post('update/youtube/{id}',[youtubeController::class, 'update'])->name('youtube.update');
+<<<<<<< Updated upstream
+
+
+Route::resource('instagram', instagramController::class);
+Route::post('update/instagram/{id}',[instagramController::class, 'update'])->name('instagram.update');
+
+=======
+>>>>>>> Stashed changes
