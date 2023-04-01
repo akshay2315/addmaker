@@ -19,10 +19,22 @@ use App\Http\Controllers\API\BrandController;
 use App\Http\Controllers\API\FacebookApiController;
 use App\Http\Controllers\API\AdminApiController;
 use App\Http\Controllers\API\youtube_data_controller;
+
+use App\Http\Controllers\API\InstagramApiController;
+use App\Http\Controllers\API\contactcontroller;
+use App\Http\Controllers\API\instacontroller;
+use App\Http\Controllers\API\InstagramApiController;
+use App\Http\Controllers\API\ProfileController;
+
+
+
+
+
 use App\Http\Controllers\API\contactcontroller;
 use App\Http\Controllers\API\instacontroller;
 use App\Http\Controllers\API\SocialMediaController;
 use App\Http\Controllers\API\AddBrandController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +50,10 @@ use App\Http\Controllers\API\AddBrandController;
 Route::post('register', [RegisterController::class, 'register']);
 Route::post('/login',[AuthOtpController::class, 'login']);
 
+Route::get('/industry',[IndustrytypeController::class, 'index']);
+
 Route::get('/display',[IndustrytypeController::class, 'index']);
+
 Route::get('/select/{id}',[IndustrytypeController::class, 'select']);
 
 Route::get('/card',[BcardController::class, 'bcard']);
@@ -88,5 +103,8 @@ Route::get('facebook', [FacebookApiController::class, 'facebook']);
  Route::post('/update/media/{id}',[SocialMediaController::class, 'update']);
 
 Route::get('/add_brand', [AddBrandController::class, 'add_brand']);
+
+ Route::resource('/profile',ProfileController::class);
+
 
 

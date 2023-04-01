@@ -113,6 +113,7 @@
                     <span class="menu-title">Youtube</span>
                 </a>
 
+
                 
 
                 <a class="nav-link" href="{{ url('bcard') }}">
@@ -126,6 +127,7 @@
 
                     
                 </a>
+
                 </a>
             </li>
 
