@@ -48,14 +48,19 @@ class BrandController extends BaseController
             'address' => 'required',
             'website' => 'required',
             'tagline' => 'required',
-            'services' => 'required'
-
+            'services' => 'required',
+            'display_media' => 'required',
+            'brand_icon' => 'required|image:jpeg,png,jpg,gif,svg|max:2048'
         ]);
    
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());       
         }
    
+        if ($request->hasFile('brand_icon')) {
+            $image_path = $request->file('brand_icon')->store('brand', 'public');
+            $input['brand_icon']=$image_path;
+           
         $brand = Brand::create($input);
    
         return response()->json([
@@ -63,6 +68,7 @@ class BrandController extends BaseController
             "message" => "Brand info created successfully",
             "data" => $brand
             ]);
+        }  
     }
 
     /**
@@ -94,7 +100,9 @@ class BrandController extends BaseController
             'address' => 'required',
             'website' => 'required',
             'tagline' => 'required',
-            'services' => 'required'
+            'services' => 'required',
+            'display_media' => 'required',
+            'brand_icon' => 'required',
         
             ]);
             if($validator->fails()){
@@ -105,7 +113,9 @@ class BrandController extends BaseController
             $brand->address = $input['address'];
             $brand->website = $input['website'];
             $brand->tagline = $input['tagline'];
-            $brand->services = $input['services'];           
+            $brand->services = $input['services']; 
+            $brand->display_media = $input['display_media'];
+            $brand->brand_icon = $input['brand_icon'];          
             $brand->save();
                            
             return response()->json([

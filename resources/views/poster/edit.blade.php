@@ -38,7 +38,7 @@
                 <div class="form-group">
                     <strong>Poster Image:</strong>
                     <input type="file" name="poster_img" class="form-control" placeholder="poster_img">
-                    <img alt="img" src="{{asset($data->poster)}}" width="100px">
+                    <img alt="img" src="{{asset($data->image)}}" width="100px">
                 </div>
             </div>
 
