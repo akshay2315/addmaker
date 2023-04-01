@@ -48,14 +48,19 @@ class BrandController extends BaseController
             'address' => 'required',
             'website' => 'required',
             'tagline' => 'required',
-            'services' => 'required'
-
+            'services' => 'required',
+            'display_media' => 'required',
+            'brand_icon' => 'required|image:jpeg,png,jpg,gif,svg|max:2048'
         ]);
    
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());       
         }
    
+        if ($request->hasFile('brand_icon')) {
+            $image_path = $request->file('brand_icon')->store('brand', 'public');
+            $input['brand_icon']=$image_path;
+           
         $brand = Brand::create($input);
    
         return response()->json([
@@ -63,6 +68,7 @@ class BrandController extends BaseController
             "message" => "Brand info created successfully",
             "data" => $brand
             ]);
+        }  
     }
 
     /**
@@ -87,7 +93,7 @@ class BrandController extends BaseController
         //
         $input = $request->all();
         $brand = Brand::find($id);
-        print_r($input);exit();
+        // print_r($input);exit();
         $validator = Validator::make($input, [
             'name' => 'required',
             'contact' => 'required',
