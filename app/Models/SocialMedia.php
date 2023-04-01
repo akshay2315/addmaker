@@ -4,14 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Passport\HasApiTokens;
 
-class Industry extends Model
+class SocialMedia extends Model
 {
     use HasFactory;
-    
-    protected $table='industry';
+    protected $table='socialmeadia';
     protected $fillable = [
-        'industry_type','id','description', 'industry_image'
+        'media_title','media_description', 'media_link','media_thumbnail'
     ];
 }

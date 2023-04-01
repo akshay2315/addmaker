@@ -92,18 +92,10 @@ Route::get('/logout', [LogoutController::class, 'perform'])->name('logout.perfor
 Route::resource('posts', PostController::class);
 Route::resource('/iposts', IpostsController::class);
 
-
-
-
-
-
  Route::resource('fbook', FbookController::class);
  Route::resource('bcard', BussinessCardController::class);
   Route::post('/update/bcard/{id}', [BussinessCardController::class,'update'])->name('bcard.update');
-
-
-
-
+  
 //  Route::post('delete-industry', [IndustryController::class,'destroy']);
 //  Route::get('admins', [IndustryController::class, 'indexs'])->name('admins.index');
 
@@ -129,14 +121,13 @@ Route::post('/industry_update/{id}', [IndustryController::class,'update'])->name
 
 Route::resource('brands', BrandController::class);  //api
 
-
 Route::resource('youtube', youtubeController::class);
 Route::post('update/youtube/{id}',[youtubeController::class, 'update'])->name('youtube.update');
-<<<<<<< Updated upstream
+
+//Route::resource('instagram', instagramController::class);
+//Route::post('update/instagram/{id}',[instagramController::class, 'update'])->name('instagram.update');
 
 
-Route::resource('instagram', instagramController::class);
-Route::post('update/instagram/{id}',[instagramController::class, 'update'])->name('instagram.update');
 
-=======
->>>>>>> Stashed changes
+
+
