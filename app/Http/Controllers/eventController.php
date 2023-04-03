@@ -55,17 +55,17 @@ class eventController extends Controller
 
             ]);
              
-            $path = public_path('images');
+            $path = public_path('event_image');
 
             if(!File::isDirectory($path)){
             File::makeDirectory($path, 0777, true, true);
              $imageName = time().'.'.$request->icon->extension();  
-             $request->icon->move(public_path('images'), $imageName);
+             $request->icon->move(public_path('event_image'), $imageName);
              $imagewithfolder = $imageName;
 
             }else{
             $imageName = time().'.'.$request->icon->extension();
-            $request->icon->move(public_path('images'), $imageName);
+            $request->icon->move(public_path('event_image'), $imageName);
             $imagewithfolder = $imageName;
             }
             $data = upcomingevents::create([
@@ -131,18 +131,18 @@ class eventController extends Controller
 
        if($_FILES['icon']['name'] != ''){
             //upload image
-        $path = public_path('images');
+        $path = public_path('event_image');
 
         if(!File::isDirectory($path)){
           File::makeDirectory($path, 0777, true, true);
           $imageName = time().'.'.$request->icon->extension();  
-          $request->icon->move(public_path('images'), $imageName);
-          $imagewithfolder = 'public\images\\'.$imageName;
+          $request->icon->move(public_path('event_image'), $imageName);
+          $imagewithfolder = $imageName;
 
         }else{
           $imageName = time().'.'.$request->icon->extension();
-          $request->icon->move(public_path('images'), $imageName);
-          $imagewithfolder = 'public\images\\'.$imageName;
+          $request->icon->move(public_path('event_image'), $imageName);
+          $imagewithfolder = $imageName;
         }
 
         $UpdateDetails = upcomingevents::where('id', $request->id)->update(array(
