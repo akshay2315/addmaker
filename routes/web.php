@@ -132,11 +132,7 @@ Route::resource('brands', BrandController::class);  //api
 
 Route::resource('youtube', youtubeController::class);
 Route::post('update/youtube/{id}',[youtubeController::class, 'update'])->name('youtube.update');
-<<<<<<< Updated upstream
-
-
 Route::resource('instagram', instagramController::class);
 Route::post('update/instagram/{id}',[instagramController::class, 'update'])->name('instagram.update');
 
-=======
->>>>>>> Stashed changes
+
