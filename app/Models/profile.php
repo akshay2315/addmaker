@@ -4,14 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Passport\HasApiTokens;
 
-class Industry extends Model
+class profile extends Model
 {
     use HasFactory;
-    
-    protected $table='industry';
+    protected $table='profile';
     protected $fillable = [
-        'industry_type','id','description', 'industry_image'
+        'name','mobile_no'
     ];
 }

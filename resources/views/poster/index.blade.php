@@ -43,7 +43,10 @@
                                 <td>{{$i}}</td>
                                 <td>{{ $pr->poster_name }}</td>
                                 <td>{{ $pr->description }}</td>
-                                <td><img alt="img" src="{{asset($pr->image)}}" width="100px"></td>
+
+                                <td><img alt="img" src="{{asset('/public/poster_img/'.$pr->poster_img)}}" width="100px"></td>
+                     <td><img alt="img" src="{{asset($pr->poster_img)}}" width="100px"></td>
+
                                 <td>{{$pr->poster_date }}</td>
                                 <td>{{$pr->status }}</td>
                                 <td>
