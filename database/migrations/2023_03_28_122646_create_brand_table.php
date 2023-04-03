@@ -21,8 +21,6 @@ return new class extends Migration
             $table->text('website');
             $table->text('tagline');
             $table->text('services');
-            $table->integer('display_media');
-            $table->string('brand_icon');
             $table->timestamps();
         });
     }
