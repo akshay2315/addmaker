@@ -35,12 +35,12 @@ class IpostsController extends Controller
             File::makeDirectory($path, 0777, true, true);
              $imageName = time().'.'.$request->images->extension();  
              $request->images->move(public_path('images'), $imageName);
-             $imagewithfolder = 'public\images\\'.$imageName;
+             $imagewithfolder = $imageName;
 
             }else{
             $imageName = time().'.'.$request->images->extension();
             $request->images->move(public_path('images'), $imageName);
-            $imagewithfolder = 'public\images\\'.$imageName;
+            $imagewithfolder = $imageName;
             }
             $data = Iposts::create([
             'title' => $request->title,
@@ -82,12 +82,12 @@ class IpostsController extends Controller
               File::makeDirectory($path, 0777, true, true);
               $imageName = time().'.'.$request->images->extension();  
               $request->images->move(public_path('images'), $imageName);
-              $imagewithfolder = 'public\images\\'.$imageName;
+              $imagewithfolder = $imageName;
     
             }else{
               $imageName = time().'.'.$request->images->extension();
               $request->images->move(public_path('images'), $imageName);
-              $imagewithfolder = 'public\images\\'.$imageName;
+              $imagewithfolder = $imageName;
             }
     
             $UpdateDetails = Iposts::where('id', $request->id)->update(array(
@@ -110,7 +110,26 @@ class IpostsController extends Controller
                        ->with('success','Post updated successfully');
         }
 
-       public function destroy(Iposts $ipost)
+    //     $request->validate([
+    //         'title' => 'required',
+    //         'description' => 'required'
+    //     ]);
+
+    //     $input = $request->all();
+    //     if ($images = $request->file('images')) {
+    //         $destinationPath = 'img/';
+    //         $postImage = date('YmdHis') . "." . $images->getClientOriginalExtension();
+    //         $images->move($destinationPath, $postImage);
+    //         $input['images'] = "$postImage";
+    //     } else {
+    //         unset($input['images']);
+    //     }
+
+    //     $ipost->update($input);
+    //     return redirect()->route('iposts.index')
+    //         ->with('success','Post updated successfully.');
+    // }
+    public function destroy(Iposts $ipost)
     {
         $ipost->delete();
         return redirect()->route('iposts.index')
@@ -119,3 +138,4 @@ class IpostsController extends Controller
 
 
 }
+

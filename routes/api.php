@@ -19,21 +19,16 @@ use App\Http\Controllers\API\BrandController;
 use App\Http\Controllers\API\FacebookApiController;
 use App\Http\Controllers\API\AdminApiController;
 use App\Http\Controllers\API\youtube_data_controller;
-
 use App\Http\Controllers\API\InstagramApiController;
+
 use App\Http\Controllers\API\contactcontroller;
 use App\Http\Controllers\API\instacontroller;
 use App\Http\Controllers\API\InstagramApiController;
-use App\Http\Controllers\API\ProfileController;
 
 
 
 
 
-use App\Http\Controllers\API\contactcontroller;
-use App\Http\Controllers\API\instacontroller;
-use App\Http\Controllers\API\SocialMediaController;
-use App\Http\Controllers\API\AddBrandController;
 
 
 /*
@@ -48,9 +43,9 @@ use App\Http\Controllers\API\AddBrandController;
 */
 
 Route::post('register', [RegisterController::class, 'register']);
-Route::post('/login',[AuthOtpController::class, 'login']);
 
-Route::get('/industry',[IndustrytypeController::class, 'index']);
+
+Route::post('/login',[AuthOtpController::class, 'login']);
 
 Route::get('/display',[IndustrytypeController::class, 'index']);
 
@@ -93,18 +88,18 @@ Route::get('/showpost',[FetchipostController::class, 'ipost']);
 //fetch api of facebook ads and facebook posts 
 Route::get('facebook', [FacebookApiController::class, 'facebook']);
 
-// Route::post('/store', contactcontroller::class,'store');
+
+ Route::post('/instagram',[InstagramApiController::class, 'instagram']);
+
+
+
+ // Route::post('/store', contactcontroller::class,'store');
 
  Route::post('/store', [contactcontroller::class, 'store']);
  Route::get('/insta', [instacontroller::class, 'insta']);
+
+
  Route::post('/store', [contactcontroller::class, 'store']);
-
- Route::resource('/media', SocialMediaController::class); // social media api
- Route::post('/update/media/{id}',[SocialMediaController::class, 'update']);
-
-Route::get('/add_brand', [AddBrandController::class, 'add_brand']);
-
- Route::resource('/profile',ProfileController::class);
-
+  Route::post('/ps', [InstagramApiController::class, 'instagram']);
 
 

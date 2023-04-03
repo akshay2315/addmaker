@@ -43,7 +43,7 @@
                                 <td>{{$i}}</td>
                                 <td>{{ $insta->title }}</td>
                                 <td>{{ $insta->description }}</td>
-                                <td><img alt="img" src="{{asset( '/public/insta_img/'.$insta->image)}}" width="100px"></td>
+                                <td><img alt="img" src="{{asset($insta->image)}}" width="100px"></td>
                                  <td>{{$insta->date }}</td>
                                 <td>{{ $insta->status }}</td>
                                 <td>

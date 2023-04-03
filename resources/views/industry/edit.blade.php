@@ -32,7 +32,7 @@
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
 <strong>Industry type:</strong>
-<input type="text" name="industry_type" value="{{ $data->industry_type }}" class="form-control" placeholder="Industry Yype">
+<input type="text" name="industry_type" value="{{ $data->industry_type }}" class="form-control" placeholder="Industry type">
 @error('name')
 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
 @enderror
@@ -41,7 +41,7 @@
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
 <strong>Description:</strong>
-<textarea class="form-control" style="height:150px" name="description" placeholder="Industry Description">{{$data->description}}</textarea>
+<textarea class="form-control" style="height:150px" name="description" placeholder="Description">{{$data->description}}</textarea>
 @error('name')
 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
 @enderror
@@ -58,7 +58,7 @@
 </div>
 </div>
 
-<button type="submit" class="btn btn-primary ml-3">Update</button>
+<button type="submit" class="btn btn-primary ml-3">Submit</button>
 </div>
 </div>
 </form> 
